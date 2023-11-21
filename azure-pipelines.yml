@@ -12,7 +12,7 @@ pool:
 steps:
 - script: |
     # Install dependencies
-    # npm install
+    npm ci
 
     # Build React app
     npm run build
