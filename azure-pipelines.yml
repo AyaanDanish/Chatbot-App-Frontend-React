@@ -10,14 +10,15 @@ pool:
   name: Default 
 
 steps:
-- script: |
-    # Install dependencies
-    npm install --only=prod
+- task: Npm@1
+  inputs:
+    command: 'install'
 
-    # Build React app
-    npm run build
-  displayName: 'Install dependencies and build'
-
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: 'run build'
+    
 - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)'
