@@ -18,9 +18,24 @@ steps:
     npm run build
   displayName: 'Install dependencies and build'
 
-- task: PublishBuildArtifacts@1
+- task: CopyFiles@2
   inputs:
-    pathtoPublish: '$(Build.SourcesDirectory)'
-    artifactName: 'drop'
-    publishLocation: 'Container'
-  displayName: 'Publish Artifact'
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: |
+       src/*
+       public/*
+    targetFolder: '$(Build.ArtifactStagingDirectory)'
+  displayName: 'Copy project files'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    artifact: 'drop'
+    publishLocation: 'pipeline'
+  displayName: 'Publish npm artifact'
+# - task: PublishBuildArtifacts@1
+#   inputs:
+#     pathtoPublish: '$(Build.SourcesDirectory)'
+#     artifactName: 'drop'
+#     publishLocation: 'Container'
+#   displayName: 'Publish Artifact'
