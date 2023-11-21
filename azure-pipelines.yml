@@ -1,0 +1,37 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '14.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install -g create-vite
+    create-vite my-vite-app --template react
+  displayName: 'Create Vite App'
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '14.x'
+  displayName: 'Install Dependencies'
+  # workingDirectory: '$(Build.SourcesDirectory)/my-vite-app'
+  
+- script: |
+    npm install
+  displayName: 'Install Node.js Dependencies'
+  workingDirectory: '$(Build.SourcesDirectory)/my-vite-app'
+
+- script: |
+    npm run build
+  displayName: 'Build'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.SourcesDirectory)/my-vite-app/dist'
+    artifactName: 'drop'
+    publishLocation: 'Container'
