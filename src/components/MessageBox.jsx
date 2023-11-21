@@ -36,7 +36,7 @@ const MessageBox = ({ userMsg, setUserMsg, handleSubmit }) => {
           id="message-box"
           type="text"
           value={userMsg}
-          placeholder="Chat with your data..."
+          placeholder="Chat with your assistant..."
           onChange={handleChange}
           onKeyDown={handleKeyDown}
         />
