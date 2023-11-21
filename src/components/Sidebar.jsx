@@ -11,7 +11,10 @@ const Sidebar = ({
   return (
     <div id="sidebar">
       <div id="logo">
-        <h1 id="title">Azure Chatbot</h1>
+        <div style={{display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'space-evenly'}}>
+          <img src="/favicon.png" id="openai-logo"/>
+          <h1 id="title">Azure Chatbot</h1>
+        </div>
         <p id="subtitle">Your Helpful Assistant</p>
       </div>
 

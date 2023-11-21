@@ -82,12 +82,17 @@
   margin-bottom: 20px;
 }
 
+#openai-logo {
+  width: 20%;
+}
+
 #title {
   font-size: 3rem;
 }
 
 #subtitle {
-  padding-left: 100px;
+  margin-top: -20px;
+  padding-left: 50%;
 }
 
 #chat-header {
@@ -281,6 +286,4 @@
   border-style: solid;
 }
 
-#company-logo {
-  width: 25%;
-}
+
