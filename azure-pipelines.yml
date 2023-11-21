@@ -1,37 +1,19 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
 trigger:
 - main
 
 pool:
-  vmImage: 'ubuntu-latest'
-
+  name: Default 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '14.x'
-  displayName: 'Install Node.js'
-
 - script: |
-    npm install -g create-vite
-    create-vite my-vite-app --template react
-  displayName: 'Create Vite App'
-
-- task: NodeTool@0
-  inputs:
-    versionSpec: '14.x'
-  displayName: 'Install Dependencies'
-  # workingDirectory: '$(Build.SourcesDirectory)/my-vite-app'
-  
-- script: |
+    # Install dependencies
     npm install
-  displayName: 'Install Node.js Dependencies'
-  workingDirectory: '$(Build.SourcesDirectory)/my-vite-app'
 
-- script: |
+    # Build React app
     npm run build
-  displayName: 'Build'
+  displayName: 'Install dependencies and build'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.SourcesDirectory)/my-vite-app/dist'
-    artifactName: 'drop'
-    publishLocation: 'Container'
