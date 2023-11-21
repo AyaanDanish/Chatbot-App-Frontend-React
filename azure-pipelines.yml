@@ -9,6 +9,9 @@ trigger:
 pool:
   name: Default 
   
+variables:
+  buildArtifactStagingDirectory: '/dist'
+
 steps:
 - script: |
     # Install dependencies
