@@ -37,7 +37,7 @@ const App = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
     if (userMsg.trim() === "") return;
 
     if (!currentTitle) setCurrentTitle(userMsg);
@@ -54,8 +54,11 @@ const App = () => {
     // NOTE: This API request is what sends the user input to the Flask backend
     try {
       const response = await requestor.post("/send_to_backend", { userMsg });
-      // console.log(response.data.response);
-      setBotMsg({ role: "assistant", content: response.data.response });
+      // console.log(response.data[response.data.length-1].content);
+      setBotMsg({
+        role: "assistant",
+        content: response.data[response.data.length - 1].content,
+      });
     } catch (error) {
       console.error("Error sending message:", error);
     }

@@ -23,7 +23,7 @@ const ChatWindow = ({ currentChat }) => {
             <li
               style={{
                 backgroundColor:
-                  message.role === "user" ? "#222327" : "#131314",
+                  message.role === "user" ? "#047ef9" : "#ff612c",
               }}
             >
               <p>{message.content}</p>

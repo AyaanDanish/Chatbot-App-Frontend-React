@@ -11,9 +11,8 @@ const Sidebar = ({
   return (
     <div id="sidebar">
       <div id="logo">
-        <img src="./logo.png" id="company-logo"></img>
-        <h1 id="title">U.S. SurgiTech</h1>
-        {/* <p id="subtitle">Helper Chatbot</p> */}
+        <h1 id="title">Azure Chatbot</h1>
+        <p id="subtitle">Your Helpful Assistant</p>
       </div>
 
       <button id="new-chat-btn" onClick={createNewChat}>
