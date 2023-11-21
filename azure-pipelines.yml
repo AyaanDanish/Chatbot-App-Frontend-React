@@ -8,6 +8,7 @@ trigger:
 
 pool:
   name: Default 
+  
 steps:
 - script: |
     # Install dependencies
@@ -16,4 +17,10 @@ steps:
     # Build React app
     npm run build
   displayName: 'Install dependencies and build'
+
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: 'dist'
+    targetFolder: '$(buildArtifactStagingDirectory)'
+  displayName: 'Copy Built Files to Staging Directory'
 
