@@ -21,44 +21,47 @@ const App = () => {
   const [previousChats, setPreviousChats] = useState([]);
   const [currentTitle, setCurrentTitle] = useState(null);
 
-  useEffect(() => {
-    if (currentTitle && userMsg && botMsg) {
-      setPreviousChats((prev) => [
-        ...prev,
-        {
-          title: currentTitle,
-          role: botMsg.role,
-          content: botMsg.content,
-        },
-      ]);
-      setUserMsg("");
-    }
-  }, [botMsg]);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
+    // Copy user message as we're about to clear the text box - we'll send the copy
+    const msgCopy = userMsg;
+
+    // Clear the textbox after message is submitted
+    setUserMsg("");
+
+    // If message was empty
     if (userMsg.trim() === "") return;
 
-    if (!currentTitle) setCurrentTitle(userMsg);
+    // If the chat didn't have a title yet, set it
+    if (!currentTitle) setCurrentTitle(msgCopy);
 
+    // Add the user's message to the chat history
     setPreviousChats((prev) => [
       ...prev,
       {
-        title: currentTitle || userMsg,
+        title: currentTitle || msgCopy, // Use current title if available, otherwise use the initial message
         role: "user",
-        content: userMsg,
+        content: msgCopy,
       },
     ]);
 
     // NOTE: This API request is what sends the user input to the Flask backend
     try {
-      const response = await requestor.post("/send_to_backend", { userMsg });
-      // console.log(response.data[response.data.length-1].content);
-      setBotMsg({
-        role: "assistant",
-        content: response.data[response.data.length - 1].content,
+      const response = await requestor.post("/send_to_backend", {
+        userMsg: msgCopy,
       });
+      const botAnswerText = response.data[response.data.length - 1].content; // Get the bot response
+
+      // Add the bot's message to the chat history
+      setPreviousChats((prev) => [
+        ...prev,
+        {
+          title: currentTitle || msgCopy,
+          role: "assistant",
+          content: botAnswerText,
+        },
+      ]);
     } catch (error) {
       console.error("Error sending message:", error);
     }
