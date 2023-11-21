@@ -8,9 +8,6 @@ trigger:
 
 pool:
   name: Default 
-  
-variables:
-  buildArtifactStagingDirectory: '/dist'
 
 steps:
 - script: |
@@ -21,9 +18,9 @@ steps:
     npm run build
   displayName: 'Install dependencies and build'
 
-- task: CopyFiles@2
+- task: PublishBuildArtifacts@1
   inputs:
-    sourceFolder: 'dist'
-    targetFolder: '$(buildArtifactStagingDirectory)'
-  displayName: 'Copy Built Files to Staging Directory'
-
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'drop'
+    publishLocation: 'Container'
+  displayName: 'Publish Artifact'
