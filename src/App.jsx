@@ -9,7 +9,7 @@ import axios from "axios";
 import "./index.css";
 
 const requestor = axios.create({
-  baseURL: "https://azurechatbot-devops.azurewebsites.net",
+  baseURL: "https://chatbot-backend-devops.azurewebsites.net/",
   headers: {
     "Content-Type": "application/json",
   },
