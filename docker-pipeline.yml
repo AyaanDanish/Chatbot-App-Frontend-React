@@ -26,3 +26,10 @@ stages:
         repository: 'ayaandanish/chatbot-frontend'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: 'dist'
+        ArtifactName: 'dockerized-frontend-artifact'
+        publishLocation: 'Container'
+      displayName: 'Publish Artifact'
+    
