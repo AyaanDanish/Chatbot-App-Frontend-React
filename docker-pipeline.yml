@@ -28,7 +28,7 @@ stages:
         Dockerfile: '**/Dockerfile'
     - task: PublishBuildArtifacts@1
       inputs:
-        PathtoPublish: 'dist'
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'drop'
         publishLocation: 'Container'
       displayName: 'Publish Artifact'
