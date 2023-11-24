@@ -1,0 +1,42 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  name: Default 
+
+steps:
+- task: Npm@1
+  inputs:
+    command: 'install'
+
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'run build'
+    
+# - task: CopyFiles@2
+#   inputs:
+#     sourceFolder: '$(Build.SourcesDirectory)'
+#     contents: |
+#        src/*
+#        public/*
+#     targetFolder: '$(Build.ArtifactStagingDirectory)'
+#   displayName: 'Copy project files'
+
+# - task: PublishPipelineArtifact@1
+#   inputs:
+#     targetPath: '$(Build.ArtifactStagingDirectory)'
+#     artifact: 'drop'
+#     publishLocation: 'pipeline'
+#   displayName: 'Publish npm artifact'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'dist'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+  displayName: 'Publish Artifact'
