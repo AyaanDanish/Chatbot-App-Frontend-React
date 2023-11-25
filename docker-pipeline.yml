@@ -22,8 +22,9 @@ stages:
     steps:
       - task: CmdLine@2
         inputs:
-          script: 'npm run test'
-      
+          script: |
+            npm install vitest
+            npm run test
   
     
 - stage: Build
