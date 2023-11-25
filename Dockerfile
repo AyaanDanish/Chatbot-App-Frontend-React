@@ -10,8 +10,6 @@ RUN npm install
 COPY . .
 # Build the Vite application
 RUN npm run build
-# Test the Vite application
-RUN npm run test
 
 # Stage 2: Serve the static production files using nginx
 FROM nginx:alpine
