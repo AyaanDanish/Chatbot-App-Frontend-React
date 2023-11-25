@@ -25,4 +25,4 @@ stages:
         containerRegistry: 'docker'
         repository: 'ayaandanish/chatbot-frontend'
         command: 'buildAndPush'
-        Dockerfile: '**/Dockerfile
+        Dockerfile: '**/Dockerfile'
