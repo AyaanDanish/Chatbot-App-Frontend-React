@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="8" failures="0" errors="0" time="1.519">
+    <testsuite name="src/components/ChatHeader.test.jsx" timestamp="2023-11-25T17:01:16.584Z" hostname="The-Nightlock-Protocol" tests="4" failures="0" errors="0" skipped="0" time="0.082">
+        <testcase classname="src/components/ChatHeader.test.jsx" name="ChatHeader component &gt; renders ChatHeader component with a heading" time="0.065">
+        </testcase>
+        <testcase classname="src/components/ChatHeader.test.jsx" name="ChatHeader component &gt; renders ChatHeader component with a default message when no heading is provided" time="0.004">
+        </testcase>
+        <testcase classname="src/components/ChatHeader.test.jsx" name="ChatHeader component &gt; renders ChatHeader component with center-aligned text when no heading is provided" time="0.008">
+        </testcase>
+        <testcase classname="src/components/ChatHeader.test.jsx" name="ChatHeader component &gt; renders ChatHeader component with a custom ID" time="0.003">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ChatWindow.test.jsx" timestamp="2023-11-25T17:01:16.587Z" hostname="The-Nightlock-Protocol" tests="4" failures="0" errors="0" skipped="0" time="0.12">
+        <testcase classname="src/components/ChatWindow.test.jsx" name="ChatWindow component &gt; renders ChatWindow component correctly with a chat" time="0.098">
+        </testcase>
+        <testcase classname="src/components/ChatWindow.test.jsx" name="ChatWindow component &gt; renders ChatWindow component correctly without chat" time="0.003">
+        </testcase>
+        <testcase classname="src/components/ChatWindow.test.jsx" name="ChatWindow component &gt; renders ChatWindow component with user-aligned and assistant-aligned messages" time="0.01">
+        </testcase>
+        <testcase classname="src/components/ChatWindow.test.jsx" name="ChatWindow component &gt; renders user icon for assistant messages and vice versa" time="0.006">
+        </testcase>
+    </testsuite>
+</testsuites>
