@@ -25,6 +25,13 @@ stages:
           script: |
             npm install vitest
             npm run test
+      - task: PublishTestResults@2
+        inputs:
+          testResultsFormat: 'JUnit'
+          testResultsFiles: '**/tests/test-*.xml'
+          failTaskOnFailedTests: true
+          failTaskOnMissingResultsFile: true
+      
   
     
 - stage: Build
