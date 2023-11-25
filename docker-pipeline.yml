@@ -12,6 +12,20 @@ variables:
   tag: '$(Build.BuildId)'
 
 stages:
+- stage: Test
+  displayName: Run Tests
+  jobs:
+  - job: Test
+    displayName: Test
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+      - task: CmdLine@2
+        inputs:
+          script: 'npm run test'
+      
+  
+    
 - stage: Build
   displayName: Build image
   jobs:
@@ -19,12 +33,12 @@ stages:
     displayName: Build
     pool:
       vmImage: ubuntu-latest
-    steps:
-    - task: Docker@2
-      inputs:
-        containerRegistry: 'docker'
-        repository: 'ayaandanish/chatbot-frontend'
-        command: 'buildAndPush'
-        Dockerfile: '**/Dockerfile'
+    # steps:
+    # - task: Docker@2
+    #   inputs:
+    #     containerRegistry: 'docker'
+    #     repository: 'ayaandanish/chatbot-frontend'
+    #     command: 'buildAndPush'
+    #     Dockerfile: '**/Dockerfile'
     
     
