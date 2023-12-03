@@ -1,5 +1,11 @@
-@import url(https://db.onlinewebfonts.com/c/9475d6a0b79c164f9f605673714e75d9?family=Circular+Std+Medium);
-@import url(https://db.onlinewebfonts.com/c/860c3ec7bbc5da3e97233ccecafe512e?family=Circular+Std+Book);
+@font-face {
+  font-family: "Circular Std Book";
+  src: url("/Circular Std Book.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Circular Std Medium";
+  src: url("/Circular Std Medium.ttf") format("truetype");
+}
 
 * {
   margin: 0;
