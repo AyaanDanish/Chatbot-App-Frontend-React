@@ -1,5 +1,13 @@
 # Azure Chatbot Release Notes
 
+## Version 2.0.2 (December 3nd 2023)
+
+### Bug Fixes
+
+- **Bug Fix 1:**
+
+  - Improved font importing speed
+
 ## Version 2.0.1 (December 2nd 2023)
 
 ### New Features
