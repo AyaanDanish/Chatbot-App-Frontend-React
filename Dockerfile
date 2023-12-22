@@ -12,6 +12,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Serve the static production files using nginx
+#TEST COMMENT
 FROM nginx:alpine
 WORKDIR /usr/share/nginx/html
 COPY --from=build /app/dist .
